@@ -1,0 +1,1 @@
+<img src="generate_barcode.php" alt="Scan untuk masuk" />

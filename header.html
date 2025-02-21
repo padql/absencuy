@@ -1,0 +1,101 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Absencuy</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- font awesome style -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<div class="hero_area">
+<header class="header_section">
+  <div class="header_bottom">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="dashboard_awal.php">
+          <span>
+            Cuy Absen
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <?php if (isset($_SESSION['user_id'])): ?>
+              <!-- Kalau user sudah login -->
+              <?php if ($_SESSION['role'] == 'guru'): ?>
+                <!-- Menu untuk Guru -->
+                <li class="nav-item">
+                  <a class="nav-link" href="dashboard_guru.php">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="siswa.php">Daftar Siswa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="walikelas.php">Daftar Walikelas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="card_absen.php">Absensi</a>
+                </li>
+              <?php elseif ($_SESSION['role'] == 'siswa'): ?>
+                <!-- Menu untuk Siswa -->
+                <li class="nav-item">
+                  <a class="nav-link" href="dashboard_siswa.php">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="siswa.php">Daftar Siswa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="walikelas.php">Daftar Walikelas</a>
+                </li>
+              <?php endif; ?>
+              <!-- Tombol Logout -->
+              <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
+              </li>
+            <?php else: ?>
+              <!-- Kalau user belum login -->
+              <li class="nav-item">
+                <a href="login.php" class="btn btn-primary">Login</a>
+              </li>
+            <?php endif; ?>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+</div>
+</body>
+</html>
