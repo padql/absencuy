@@ -39,7 +39,8 @@
         <div class="row">
           <div class="col-md-6">
             <div class="detail-box">
-            <img src="generate_barcode.php" alt="Scan untuk masuk" />
+            <!-- <img src="generate_barcode.php" alt="Scan untuk masuk" /> -->
+             <h1>TEST</h1>
             </div>
           </div>
         </div>
